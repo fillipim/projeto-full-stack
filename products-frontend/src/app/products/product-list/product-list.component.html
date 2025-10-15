@@ -1,0 +1,15 @@
+<div class="product-list-container">
+  <div class="header">
+    <h1>📦 Lojinha</h1>
+    <p>Encontre os melhores produtos com os melhores preços</p>
+  </div>
+
+  <div *ngIf="products.length === 0" class="empty-state">
+    <p>Nenhum produto cadastrado ainda.</p>
+    <p>Use a API para adicionar produtos!</p>
+  </div>
+
+  <div class="products-grid" *ngIf="products.length > 0">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </div>
+</div>

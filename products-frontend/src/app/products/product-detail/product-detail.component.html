@@ -1,0 +1,34 @@
+<div class="product-detail-container" *ngIf="product; else loading">
+  <div class="product-detail">
+    <div class="product-image-section">
+      <img
+        [src]="
+          product.imagem
+            ? 'http://localhost:3000/uploads/' + product.imagem
+            : '/assets/placeholder.jpg'
+        "
+        [alt]="product.nome"
+        class="detail-image"
+      />
+    </div>
+
+    <div class="product-info-section">
+      <h1 class="product-title">{{ product.nome }}</h1>
+      <span class="product-category">{{ product.categoria }}</span>
+
+      <p class="product-description">{{ product.descricao }}</p>
+
+      <div class="product-price-section">
+        <h2 class="product-price">{{ product.preco | currency : 'BRL' }}</h2>
+      </div>
+
+      <button mat-raised-button color="primary" routerLink="/">← Voltar para Lista</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>Carregando produto...</p>
+  </div>
+</ng-template>
